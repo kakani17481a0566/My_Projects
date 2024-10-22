@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container { max-width: 400px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">BMI Calculator</h1>
+        <div class="form-group">
+            <label for="weight">Enter your weight (kg):</label>
+            <input type="number" class="form-control" id="weight" placeholder="Weight in kg" required>
+        </div>
+
+        <div class="form-group">
+            <label for="height">Enter your height (ft):</label>
+            <input type="number" class="form-control" id="height" placeholder="Height in ft" required>
+        </div>
+
+        <button class="btn btn-primary btn-block" onclick="calculateBMI()">Calculate BMI</button>
+
+        <h2 id="result" class="text-center mt-4"></h2>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const heightFt = parseFloat(document.getElementById('height').value);
+            
+            // Convert height from feet to meters
+            const heightM = heightFt * 0.3048;
+            const BMI = weight / (heightM * heightM);
+            
+            let resultText = '';
+
+            if (BMI < 18.5) {
+                resultText = 'Underweight';
+            } else if (BMI >= 18.5 && BMI <= 24.9) {
+                resultText = 'Normal Weight';
+            } else if (BMI >= 25 && BMI < 29.9) {
+                resultText = 'Overweight';
+            } else {
+                resultText = 'Obesity';
+            }
+
+            document.getElementById('result').innerText = `Your BMI is ${BMI.toFixed(2)}: ${resultText}`;
+        }
+    </script>
+</body>
+</html>
