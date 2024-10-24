@@ -1,0 +1,25 @@
+What is the distribution of movie ratings?
+How does the number of votes correlate with movie ratings?
+What are the top 10 movies by rating?
+What is the average rating by genre?
+How has the average rating of movies changed over the years?
+What is the distribution of movie durations?
+Is there a correlation between duration and rating?
+Which directors have the highest average movie ratings?
+What are the most common genres in the dataset?
+How do the ratings of movies differ by genre?
+What is the trend of movie releases over the years?
+How does the number of votes change with ratings across genres?
+What is the average number of votes for movies based on their rating?
+What are the longest and shortest movies in the dataset?
+How many movies were released each year?
+What percentage of movies have a rating above a certain threshold (e.g., 7.0)?
+What is the average rating of movies directed by specific directors?
+How do movies with high ratings vary in terms of their duration?
+What are the most common combinations of genres in movies?
+How does the average rating compare for movies released in different decades?
+What is the relationship between the number of votes and the release year?
+How many movies fall into each rating category (e.g., 0-3, 3-6, 6-9, 9-10)?
+What is the average rating of movies by their release month?
+Are there any outliers in terms of rating or number of votes?
+What is the average duration of movies across different genres?

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMI Calculator</title>
-    <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -15,9 +14,6 @@
             margin-top: 50px;
         }
     </style>
-    
-    
-   
 </head>
 <body>
     <div class="container">
@@ -30,8 +26,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="height">Enter your height (ft):</label>
-                    <input type="number" class="form-control" id="height" placeholder="Height in ft" required>
+                    <label for="heightFt">Enter your height (ft):</label>
+                    <input type="number" class="form-control" id="heightFt" placeholder="Height in ft" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="heightCm">Enter your height (cm):</label>
+                    <input type="number" class="form-control" id="heightCm" placeholder="Height in cm" required>
                 </div>
 
                 <button class="btn btn-primary btn-block" onclick="calculateBMI()">Calculate BMI</button>
@@ -41,7 +42,6 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -49,22 +49,29 @@
     <script>
         function calculateBMI() {
             const weight = parseFloat(document.getElementById('weight').value);
-            const heightFt = parseFloat(document.getElementById('height').value);
+            const heightFt = parseFloat(document.getElementById('heightFt').value);
+            const heightCm = parseFloat(document.getElementById('heightCm').value);
             
             // Validate input
             if (isNaN(weight) || weight <= 0) {
                 document.getElementById('result').innerText = 'Please enter a valid weight (greater than 0).';
                 return;
             }
-            if (isNaN(heightFt) || heightFt <= 0) {
-                document.getElementById('result').innerText = 'Please enter a valid height (greater than 0).';
+            if (isNaN(heightFt) && isNaN(heightCm)) {
+                document.getElementById('result').innerText = 'Please enter a valid height (greater than 0) in either ft or cm.';
                 return;
             }
 
-            // Convert height from feet to meters
-            const heightM = heightFt * 0.3048;
+            let heightM;
+            if (heightCm > 0) {
+                // Convert height from cm to meters
+                heightM = heightCm / 100;
+            } else {
+                // Convert height from feet to meters
+                heightM = heightFt * 0.3048;
+            }
+
             const BMI = weight / (heightM * heightM);
-            
             let resultText = '';
 
             if (BMI < 18.5) {
