@@ -8,10 +8,14 @@
     <style>
         body {
             background-color: #4158D0;
+            color: rgb(0, 0, 0);
         }
         .container {
             max-width: 400px;
             margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -24,19 +28,16 @@
                     <label for="weight">Enter your weight (kg):</label>
                     <input type="number" class="form-control" id="weight" placeholder="Weight in kg" required>
                 </div>
-                </div> <h1>Enter height in feet or centimeters.</h1></div>
+                <h3 class="text-center">Enter height in feet or centimeters:</h3>
                 <div class="form-group">
-                    <label for="heightFt">Enter your height (ft):</label>
-                    <input type="number" class="form-control" id="heightFt" placeholder="Height in ft" required>
+                    <label for="heightFt">Height (ft):</label>
+                    <input type="number" class="form-control" id="heightFt" placeholder="Height in ft">
                 </div>
-
                 <div class="form-group">
-                    <label for="heightCm">Enter your height (cm):</label>
-                    <input type="number" class="form-control" id="heightCm" placeholder="Height in cm" required>
+                    <label for="heightCm">Height (cm):</label>
+                    <input type="number" class="form-control" id="heightCm" placeholder="Height in cm">
                 </div>
-
                 <button class="btn btn-primary btn-block" onclick="calculateBMI()">Calculate BMI</button>
-
                 <h2 id="result" class="text-center mt-4"></h2>
             </div>
         </div>
