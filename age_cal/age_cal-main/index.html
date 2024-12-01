@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculate Age</title>
+  <style>
+    body {
+      display: grid;
+      place-items: center;
+      height: 100vh;
+      background: #614385;
+      /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #516395, #614385);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #516395, #614385);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgb(255, 255, 255);
+    }
+
+    .form-container label,
+    input,
+    button {
+      margin: 10px;
+    }
+
+    .form-container button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .result-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <label for="birthdate">Enter your birthdate:</label>
+    <input type="date" id="birthdate">
+    <button onclick="calculateAge()">Calculate Age</button>
+    <div class="result-container" id="result"></div>
+  </div>
+
+  <script>
+    function calculateAge() {
+      var birthdate = new Date(document.getElementById("birthdate").value);
+      var today = new Date();
+      var age = today.getFullYear() - birthdate.getFullYear();
+      var monthDiff = today.getMonth() - birthdate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+        age--;
+      }
+      document.getElementById("result").innerHTML = "Your age is: " + age;
+    }
+  </script>
+</body>
+
+</html>
