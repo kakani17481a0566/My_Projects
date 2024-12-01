@@ -1,0 +1,168 @@
+/* Add a black background color to the body */
+body {
+
+
+  font-family: "Times New Roman", cursive;
+
+  color: white;
+  background: #AA076B;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #61045F, #AA076B);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #61045F, #AA076B);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+}
+
+/* Style the h1 element */
+h1 {
+  font-size: 36px;
+  color: #fff;
+  text-align: center;
+  font-weight: normal;
+  margin: 20px 0;
+}
+
+p {
+  font-size: 36px;
+  color: #fff;
+  text-align: left;
+  font-weight: normal;
+  margin: 20px 0;
+
+}
+
+/* Style the div elements that contain the input fields and button */
+div {
+  display: flex;
+  /* Use flexbox layout for the div elements */
+  justify-content: space-between;
+  /* Spread the div elements horizontally, with equal space between them */
+  margin: 10px 0;
+  /* Add a margin of 10px at the top and bottom of the div elements */
+}
+
+/* Style the input fields */
+input[type=number] {
+  width: 40%;
+  /* Set the width of the input fields to 40% */
+  padding: 8px 10px;
+  /* Add some padding to the input fields */
+  border: 1px solid #CCC;
+  /* Add a border to the input fields */
+  border-radius: 4px;
+  /* Round the corners of the input fields */
+  font-size: 16px;
+  /* Set the font size of the input fields to 16px */
+}
+
+/* Style the button */
+button {
+  background-color: #4CAF50;
+  /* Set the background color of the button to green */
+  border: none;
+  /* Remove the border from the button */
+  color: white;
+  /* Set the text color of the button to white */
+  padding: 15px 32px;
+  /* Add some padding to the button */
+  text-align: center;
+  /* Center align the text inside the button */
+  text-decoration: none;
+  /* Remove the default text decoration from the button */
+  display: inline-block;
+  /* Display the button as an inline block element */
+  font-size: 16px;
+  /* Set the font size of the button text */
+  margin: 4px 2px;
+  /* Add some margin to the button */
+  cursor: pointer;
+  /* Change the cursor to a pointer when hovering over the button */
+  border-radius: 5px;
+  /* Add some rounded corners to the button */
+  display: block;
+  margin: auto;
+
+}
+
+/* button {
+  display: block;
+  margin: auto;
+} */
+
+#output {
+  display: table;
+  /* Display the output as a table */
+  border-collapse: collapse;
+  /* Remove the space between table cells */
+  border: 1px solid #fff;
+  /* Add a border around the table cells */
+}
+
+#output div {
+  display: table-row;
+  /* Display the div element as a table row */
+}
+
+#output p {
+  display: table-cell;
+  /* Display the p element as a table cell */
+  padding: 8px;
+  /* Add some padding to the table cells */
+  text-align: left;
+  font-weight: normal;
+
+
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* 
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #45a049;
+} */
+
+
+
+
+td,
+th {
+  color: white;
+
+  font-weight: normal;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+
+.bold-white {
+  color: white;
+  font-weight: bold;
+}

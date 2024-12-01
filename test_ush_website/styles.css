@@ -1,0 +1,78 @@
+/* Body Background */
+body {
+    background: linear-gradient(135deg, #008080, #00b3b3); /* Teal gradient */
+    font-family: 'Arial', sans-serif;
+}
+
+/* Card Styling */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Title Styling */
+.card-title {
+    color: #006666; /* Darker teal for title */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Text Styling */
+.card-text {
+    color: #333; /* Dark text for readability */
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.btn-light {
+    background: linear-gradient(90deg, #009999, #00cccc); /* Lighter teal gradient for buttons */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+
+/* Button Hover Effect */
+.btn-light:hover {
+    background: linear-gradient(90deg, #00cccc, #009999); /* Reverse gradient on hover */
+    transform: scale(1.05);
+}
+
+/* Image Styling */
+.btn-light img {
+    transition: transform 0.3s;
+}
+
+/* Image Hover Effect */
+.btn-light:hover img {
+    transform: scale(1.1);
+}
+
+/* Flex Container */
+.d-flex {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Adds spacing between buttons */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .card {
+        max-width: 90%;
+    }
+    .card-title {
+        font-size: 2rem; /* Slightly smaller title on small screens */
+    }
+    .card-text {
+        font-size: 1rem; /* Adjust text size */
+    }
+}

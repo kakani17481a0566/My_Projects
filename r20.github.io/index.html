@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+  <h1>SRGEC R20 BATCH INTERNAL MARKS CALCULATOR</h1>
+
+  <table class="d-flex justify-content-center  table-responsive edecurve ">
+    <tr>
+      <td colspan="2"><strong>MID 1</strong></td>
+      <td colspan="2"><strong>MID 2</strong></td>
+    </tr>
+    <tr>
+      <td>Obj 1:</td>
+      <td><input type="text" id="obj1"  placeholder="range(0-10)"></td>
+      <td>Obj 2:</td>
+      <td><input type="text" id="obj2" placeholder="range(0-10)"></td>
+    </tr>
+    <tr>
+      <td>Des 1:</td>
+      <td><input type="text" id="des1" placeholder="range(0-15)"></td>
+      <td>Des 2:</td>
+      <td><input type="text" id="des2" placeholder="range(0-15)"></td>
+    </tr>
+    <tr>
+      <td>Assign 1:</td>
+      <td><input type="text" id="assign1" placeholder="range(0-5)"></td>
+      <td>Assign 2:</td>
+      <td><input type="text" id="assign2" placeholder="range(0-5)"></td>
+    </tr>
+    <tr>
+      <td colspan="4"><button type="button" class="btn btn-success d-flex align-self-center"
+          onclick="calculateInternalMarks()">Calculate
+          Internal Marks <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-pen" viewBox="0 0 16 16">
+            <path
+              d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
+          </svg><i class="fa-regular fa-calculator"></i></button></td>
+    </tr>
+    <tr>
+      <td colspan="5">
+        <button type="reset" class="btn btn-warning d-flex align-self-center" onclick="resetForm()">Reset</button>
+      </td>
+    </tr>
+  </table>
+
+  <p class="d-flex justify-content-center  table-responsive card-header table-success" id="result"></p>
+
+  <script>function calculateInternalMarks() {
+      // Read input from user
+      var obj1 = parseFloat(document.getElementById("obj1").value);
+      var des1 = parseFloat(document.getElementById("des1").value);
+      var assign1 = parseFloat(document.getElementById("assign1").value);
+      var obj2 = parseFloat(document.getElementById("obj2").value);
+      var des2 = parseFloat(document.getElementById("des2").value);
+      var assign2 = parseFloat(document.getElementById("assign2").value);
+
+      // Check that values are in range
+      if (isNaN(obj1) || obj1 < 0 || obj1 > 10) {
+        document.getElementById("result").innerHTML = "Error: Obj 1 is out of range or not a number.";
+        return;
+      }
+      if (isNaN(des1) || des1 < 0 || des1 > 15) {
+        document.getElementById("result").innerHTML = "Error: Des 1 is out of range or not a number.";
+        return;
+      }
+      if (isNaN(assign1) || assign1 < 0 || assign1 > 5) {
+        document.getElementById("result").innerHTML = "Error: Assign 1 is out of range or not a number.";
+        return;
+      }
+      if (isNaN(obj2) || obj2 < 0 || obj2 > 10) {
+        document.getElementById("result").innerHTML = "Error: Obj 2 is out of range or not a number.";
+        return;
+      }
+      if (isNaN(des2) || des2 < 0 || des2 > 15) {
+        document.getElementById("result").innerHTML = "Error: Des 2 is out of range or not a number.";
+        return;
+      }
+      if (isNaN(assign2) || assign2 < 0 || assign2 > 5) {
+        document.getElementById("result").innerHTML = "Error: Assign 2 is out of range or not a number.";
+        return;
+      }
+      // Calculate MID 1 and MID 2
+      // obj1 /= 2;
+      var mid1 = obj1 + des1 + assign1;
+      // obj2 /= 2;
+      var mid2 = obj2 + des2 + assign2;
+
+      // Calculate best and least MID
+      var best_mid = Math.max(mid1, mid2);
+      var least_mid = Math.min(mid1, mid2);
+
+      // Calculate 80% of best MID and 20% of least MID
+      var mid_80 = 0.8 * best_mid;
+      var mid_20 = 0.2 * least_mid;
+
+      // Calculate final internal marks
+      var final_internal_marks = mid_80 + mid_20;
+
+      // Calculate and print CEIL final internal marks
+      var ceil_final_internal_marks = Math.ceil(final_internal_marks);
+
+      // Create the table structure
+      var resultTable = '<table>';
+      resultTable += '<tr><th>MID</th><th>MID 1</th><th>MID 2</th></tr>';
+      resultTable += '<tr><td>OBJ</td><td>' + obj1 + '</td><td>' + obj2 + '</td></tr>';
+      resultTable += '<tr><td>DES</td><td>' + des1 + '</td><td>' + des2 + '</td></tr>';
+      resultTable += '<tr><td>ASSIGN</td><td>' + assign1 + '</td><td>' + assign2 + '</td></tr>';
+      resultTable += '<tr><td>SUM OF OBJ + DES + Assign </td><td>' + mid1 + '</td><td>' + mid2 + '</td></tr>';
+      resultTable += '<tr><td>Best MID</td><td colspan="2">' + best_mid + '</td></tr>';
+      resultTable += '<tr><td>Least MID</td><td colspan="2">' + least_mid + '</td></tr>';
+      resultTable += '<tr><td>80% of Best MID</td><td colspan="2">' + mid_80.toFixed(1) + '</td></tr>';
+      resultTable += '<tr><td>20% of Least MID</td><td colspan="2">' + mid_20.toFixed(1) + '</td></tr>';
+      resultTable += '<tr><td>Final Internal Marks</td><td colspan="2">' + final_internal_marks.toFixed(1) + '</td></tr>';
+      resultTable += '<tr><td>Ceil Final Internal Marks</td><td colspan="2">' + ceil_final_internal_marks.toFixed(1) + '</td></tr>';
+      resultTable += '</table>';
+
+
+      // Set the result table as the inner HTML of the result element
+      document.getElementById("result").innerHTML = resultTable;
+
+
+    }
+
+    function resetForm() {
+      document.getElementById("obj1").value = "";
+      document.getElementById("des1").value = "";
+      document.getElementById("assign1").value = "";
+      document.getElementById("obj2").value = "";
+      document.getElementById("des2").value = "";
+      document.getElementById("assign2").value = "";
+      document.getElementById("result").innerHTML = "";
+    }
+  </script>
+
+</body>
+
+</html>
