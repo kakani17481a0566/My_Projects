@@ -1,5 +1,5 @@
 CREATE TABLE [dbo].[Records] (
-    S_NO INT NOT NULL PRIMARY KEY, -- Sequential number (Primary Key)
+    S_NO INT NOT NULL IDENTITY(1,1) PRIMARY KEY, -- Sequential number with auto-increment (Primary Key)
     DATE DATETIME NULL,            -- Timestamp
     NAME NVARCHAR(100) NULL,       -- Patient name
     OLD_NEW NVARCHAR(10) NULL,     -- Old or new patient indicator
